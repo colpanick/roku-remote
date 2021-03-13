@@ -1,0 +1,52 @@
+body {
+    background-color: #555555;
+}
+.interface {
+    background-color: #222222;
+    width: 200;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 3px;
+    margin: 1px;
+}
+
+.int-row {
+    text-align: center;
+    /* background-color: gray; */
+    height: fit-content;
+    margin: 5px;
+}
+
+.button {
+    background-color: #111111;
+    border: 1px solid black;
+    display: inline-block;
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+    padding: 2px;
+    color: #DDDDDD;
+}
+
+.button:hover {
+    background-color: blueviolet;
+}
+
+.button i {
+    font-size: 36px;
+}
+
+.appbtn {
+    width: 75px;
+    background-size: cover;
+    background-position: center;
+}
+
+.appbtn:hover {
+    border-color: blueviolet;
+}
+
+.button img {
+    height: 36px;
+    
+}

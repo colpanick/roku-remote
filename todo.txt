@@ -1,0 +1,6 @@
+TODO:
+
+-- App specific buttons
+-- Customizable Favorites
+-- Power and volume buttons
+-- Ability to hold in buttons
