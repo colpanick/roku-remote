@@ -1,38 +1,59 @@
 <html>
 <head>
-    <title></title>
+    <title>Roku Remote</title>
     <script src="commands.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+    <ul id="menu">
+        <li>
+            <input type="checkbox" id="menu-main" class=menu-check checked=True>
+            <label for="menu-main">Remote</label>
+        </li>
+        <li>
+            <input type="checkbox" id="menu-text" class=menu-check>
+            <label for="menu-text">Send Text</label>
+        </li>
+        <li>
+            <input type="checkbox" id="menu-macros" class=menu-check>
+            <label for="menu-macros">Macros</label>
+        </li>
+        <li>
+            <input type="checkbox" id="menu-config" class=menu-check>
+            <label for="menu-config">Configuration</label>
+        </li>
+    </ul>
+
+    <!-- Roku Remote -->
     <div id=main class="interface">
         <div class="int-row" id="top">
-            <span class="button" id="back"><i class="fa fa-long-arrow-left"></i></span>
-            <span class="button" id="home"><i class="fa fa-home"></i></span>
+            <span class="button btn-cmd" id="back"><i class="fa fa-long-arrow-left"></i></span>
+            <span class="button btn-cmd" id="home"><i class="fa fa-home"></i></span>
         </div>
         <div id="navigation">
             <div class="int-row"  id="nav-top">
-                <span class="button" id="up"><i class="fa fa-arrow-circle-up"></i></span>
+                <span class="button btn-cmd" id="up"><i class="fa fa-arrow-circle-up"></i></span>
             </div>
             <div id="nav-middle" class="int-row">
-                <span class="button" id="left"><i class="fa fa-arrow-circle-left"></i></span>
-                <span class="button" id="ok"><i class="fa fa-bullseye"></i></span>
-                <span class="button" id="right"><i class="fa fa-arrow-circle-right"></i></span>
+                <span class="button btn-cmd" id="left"><i class="fa fa-arrow-circle-left"></i></span>
+                <span class="button btn-cmd" id="select"><i class="fa fa-bullseye"></i></span>
+                <span class="button btn-cmd" id="right"><i class="fa fa-arrow-circle-right"></i></span>
             </div>
             <div class="int-row" id="nav-bottom">
-                <span class="button" id="down"><i class="fa fa-arrow-circle-down"></i></span>
+                <span class="button btn-cmd" id="down"><i class="fa fa-arrow-circle-down"></i></span>
             </div>
         </div>
         <div class="int-row"  id="misc">
-            <span class="button" id="repeat"><i class="fa fa-undo"></i></span>
-            <span class="button" id="mic"><i class="fa fa-microphone"></i></span>
-            <span class="button" id="options"><i class="fa fa-asterisk"></i></span>
+            <span class="button btn-cmd" id="instantreplay"><i class="fa fa-undo"></i></span>
+            <!-- <span class="button btn-cmd" id="search"><i class="fa fa-search"></i></span> -->
+            <span class="button btn-cmd" id="info"><i class="fa fa-asterisk"></i></span>
         </div>
         <div class="int-row"  id="playback">
-            <span class="button" id="rewind"><i class="fa fa-backward"></i></span>
-            <span class="button" id="playpause"><i class="fa fa-play"></i></span>
-            <span class="button" id="fastforward"><i class="fa fa-forward"></i></span>
+            <span class="button btn-cmd" id="rev"><i class="fa fa-backward"></i></span>
+            <span class="button btn-cmd" id="play"><i class="fa fa-play"></i></span>
+            <span class="button btn-cmd" id="fwd"><i class="fa fa-forward"></i></span>
         </div>
         <div class="int-row" id="apps-1">
             <span class="button appbtn" id="fav1"></span>
@@ -43,10 +64,72 @@
             <span class="button appbtn" id="fav3"></span>
             <span class="button appbtn" id="fav4"></span>
         </div>
-        <div class="int-row" id="custom1">
-            <span class="button" id="prevepisode">Prev Episode</span>
-            <span class="button" id="nextepisode">Next Episode</span>
+    </div>
+
+    <!-- Text Sending Interface -->
+    <div id="text" class="interface hidden">
+        <div class="int-row">
+            <input id=text_input>
+            <div id=btnSend class="std-btn button">Send Text</div>
         </div>
+    </div>
+
+    <!-- Macros -->
+    <div id="macros" class="interface hidden">
+        <div class="int-row">
+            <h3>Macros</h3>
+            <div class="button btn-mac" id="hulu-restartepisode">Hulu Restart Episode</div>
+            
+        </div>
+        <div class="int-row">
+            <div class="button btn-mac" id="hulu-nextepisode">Hulu Next Episode</div>
+        </div>
+    </div>
+
+    <!-- Configuration -->
+    <div id="config" class="interface config hidden">
+        <div class="int-row">
+            <H3>Configuration</H3>
+        </div>
+        <div class="section" id=sec-device-info>
+            <div class="int-row">
+                IP Address: <input type="text" class="setting" id=ipaddr>
+                
+            </div>
+            <div class="int-row">
+                port: <input type="text" class="setting" id=port>
+            </div>
+        </div>
+        <div class="section" id=sec-fav-preview>
+            <div class="int-row">
+                <span class="button appbtn" id="config-fav1-icon"></span>
+                <span class="button appbtn" id="config-fav2-icon"></span>            
+            </div>
+            <div class="int-row">
+                <span class="button appbtn" id="config-fav3-icon"></span>
+                <span class="button appbtn" id="config-fav4-icon"></span>
+            </div>
+
+        </div>
+        <div class="section" id=sec-fav-settings>
+            <div class="int-row">
+                <a href="" target="_blank" id="applist-link">Installed Application List</a>
+            </div>
+            <div class="int-row">
+                Fav1 ID: <input class="setting favnum" type="text" id="config-fav1-id">
+                Fav2 ID:<input class="setting favnum" type="text" id="config-fav2-id">
+            </div>
+            <div class="int-row">
+                Fav3 ID:<input class="setting favnum" type="text" id="config-fav3-id">
+                Fav4 ID:<input class="setting favnum" type="text" id="config-fav4-id">
+            </div>
+        </div>
+
+        <div class="int-row">
+            <div id=save-cookies class="button std-btn">Save Changes</div>
+            <div id=load-defaults class="button std-btn">Load Defaults</div>
+        </div>
+    </div>
 </body>
 </html>
 
