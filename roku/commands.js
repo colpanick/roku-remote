@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Commands get lost if sent too quckly one after another
     // Creating a queue with a set interfal wait prevents loss of commands
     let keypress_queue = new Array;
-    setInterval(send_next_in_queue,250);
+    setInterval(send_next_in_queue,50);
     
 
     function sendCommand(cmd, type) {
